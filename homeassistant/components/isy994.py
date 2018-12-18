@@ -17,7 +17,7 @@ from homeassistant.helpers import discovery, config_validation as cv
 from homeassistant.helpers.entity import Entity
 from homeassistant.helpers.typing import ConfigType, Dict
 
-REQUIREMENTS = ['https://github.com/akarelin/PyISY/blob/master/PyISY-1.1.1.tar.gz#PyISY==1.1.1']
+REQUIREMENTS = ['https://raw.githubusercontent.com/akarelin/PyISY/master/PyISY-1.1.1.tar.gz#PyISY==1.1.1']
 
 _LOGGER = logging.getLogger(__name__)
 
