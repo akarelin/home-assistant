@@ -143,6 +143,9 @@ def _check_for_node_def(hass: HomeAssistant, node,
     if not hasattr(node, 'node_def_id') or node.node_def_id is None:
         # Node doesn't have a node_def (pre 5.0 firmware most likely)
         return False
+    
+    if node.type == '1.1.0.0':
+	    return False
 
     node_def_id = node.node_def_id
 
@@ -268,6 +271,9 @@ def _categorize_nodes(hass: HomeAssistant, nodes, ignore_identifier: str,
                       sensor_identifier: str)-> None:
     """Sort the nodes to their proper domains."""
     for (path, node) in nodes:
+        if not node.name.startswith('isy_'):
+            node.name = 'isy_' + node.name
+
         ignored = ignore_identifier in path or ignore_identifier in node.name
         if ignored:
             # Don't import this node as a device at all
