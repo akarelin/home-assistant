@@ -281,6 +281,7 @@ def _categorize_nodes(hass: HomeAssistant, nodes, ignore_identifier: str,
 
         from PyISY.Nodes import Group
         if isinstance(node, Group):
+            node.name.replace('isy_','isyg_',1)
             hass.data[ISY994_NODES][SCENE_DOMAIN].append(node)
             continue
 
